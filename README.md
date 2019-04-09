@@ -1,1 +1,1 @@
-# Jacob's sample web application Using Spring Framework
+# Jacob's sample web application using Spring Framework
