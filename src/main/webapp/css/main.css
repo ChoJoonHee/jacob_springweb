@@ -1,0 +1,25 @@
+body.main {
+	margin: 0 auto 10px;
+	max-width: 640px;
+}
+
+body.user {
+	margin: 0 auto 10px;
+	max-width: 400px;
+} 
+
+p.header {
+	margin: 0;
+	border-top: 1px solid darkgray;
+	border-bottom: 1px solid darkgray;
+	padding: 4px;
+	font-weight: bold;
+	background-color: lightblue;
+}
+
+p.list {
+	margin: 0;
+	border-bottom: 1px solid darkgray;
+	padding: 4px;
+	text-align:justify
+}
