@@ -67,5 +67,3 @@ task dist(dependsOn:makedist, type:Sync) {
 	from 'dist'
 	into "$appDir"
 }
-
-ant.importBuild 'build.xml'
