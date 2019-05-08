@@ -1,6 +1,6 @@
 # Jacob Springweb
 
-교재의 Chapter 11의 회원가입
+교재 Chapter 11 회원가입
 
 ## Spring MVC와 Spring JDBC를 사용해서 Web application 만드는 방법
 
