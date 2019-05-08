@@ -17,6 +17,6 @@ public class DefaultController {
 
 	@RequestMapping("/**")
 	public void defaultMapping() {
-		logger.debug("default mapping");
+		logger.debug("Default mapping");
 	}
 }

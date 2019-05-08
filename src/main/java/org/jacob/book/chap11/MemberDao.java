@@ -29,4 +29,9 @@ public interface MemberDao {
 	 * 회원 목록
 	 */
 	List<Member> selectAll(int offset, int count);
+	
+	/**
+	 * 회원 수
+	 */
+	int countAll();
 }

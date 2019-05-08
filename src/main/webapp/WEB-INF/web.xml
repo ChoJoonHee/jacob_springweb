@@ -25,10 +25,14 @@
 
 	<servlet-mapping>
 		<servlet-name>app</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>/app/*</url-pattern>
 	</servlet-mapping>
 
 	<error-page>
 		<location>/error.jsp</location>
 	</error-page>
+
+	<welcome-file-list>
+		<welcome-file>app/main</welcome-file>
+	</welcome-file-list>
 </web-app>

@@ -11,6 +11,7 @@ public class Member {
 	String email; // 이메일
 	String password; // 비밀번호
 	String name; // 이름
+	String cdate; // 가입일
 
 	/**
 	 * Default Constructor
@@ -63,9 +64,17 @@ public class Member {
 		this.name = name;
 	}
 
+	public String getCdate() {
+		return cdate;
+	}
+
+	public void setCdate(String cdate) {
+		this.cdate = cdate;
+	}
+
 	@Override
 	public String toString() {
-		return "Member [memberId=" + memberId + ", email=" + email
-				+ ", password=" + password + ", name=" + name + "]\n";
+		return "Member [memberId=" + memberId + ", email=" + email + ", name="
+				+ name + ", cdate=" + cdate + "]";
 	}
 }

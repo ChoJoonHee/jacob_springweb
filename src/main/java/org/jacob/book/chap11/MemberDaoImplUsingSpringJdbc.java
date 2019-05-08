@@ -16,13 +16,11 @@ import org.springframework.stereotype.Repository;
 @Repository("memberDao")
 public class MemberDaoImplUsingSpringJdbc implements MemberDao {
 
-	static final String SELECT_BY_EMAIL = "SELECT memberId, email, name FROM member WHERE email=?";
-
 	static final String INSERT = "INSERT member(email, password, name) VALUES(?, sha2(?,256), ?)";
 
-	static final String UPDATE = "UPDATE member SET email=?, password=sha2(?,256), name=? WHERE memberId=?";
+	static final String SELECT_ALL = "SELECT memberId, email, name, left(cdate,19) cdate FROM member ORDER BY memberId desc LIMIT ?,?";
 
-	static final String SELECT_ALL = "SELECT memberId, email, name FROM member ORDER BY memberId desc LIMIT ?,?";
+	static final String COUNT_ALL = "SELECT count(memberId) count FROM member";
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
@@ -35,8 +33,8 @@ public class MemberDaoImplUsingSpringJdbc implements MemberDao {
 	 */
 	@Override
 	public Member selectByEmail(String email) {
-		return jdbcTemplate.queryForObject(SELECT_BY_EMAIL, memberRowMapper,
-				email);
+		// TODO selectByEmail() 메서드 구현
+		return null;
 	}
 
 	/**
@@ -53,8 +51,7 @@ public class MemberDaoImplUsingSpringJdbc implements MemberDao {
 	 */
 	@Override
 	public void update(Member member) {
-		jdbcTemplate.update(UPDATE, member.getEmail(), member.getPassword(),
-				member.getName(), member.getMemberId());
+		// TODO update() 메서드 구현
 	}
 
 	/**
@@ -62,6 +59,11 @@ public class MemberDaoImplUsingSpringJdbc implements MemberDao {
 	 */
 	@Override
 	public List<Member> selectAll(int offset, int count) {
-		return jdbcTemplate.query(SELECT_ALL, memberRowMapper, 0, 100);
+		return jdbcTemplate.query(SELECT_ALL, memberRowMapper, offset, count);
+	}
+
+	@Override
+	public int countAll() {
+		return jdbcTemplate.queryForObject(COUNT_ALL, Integer.class);
 	}
 }
