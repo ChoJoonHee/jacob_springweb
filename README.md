@@ -16,7 +16,7 @@
 ### Method Arguments
 |컨트롤러 함수 인자|설명|
 |---|---|
-|HttpServletRequest,<br>HttpServletResponse|서블릿의 요청과 응답|
+|HttpServletRequest, HttpServletResponse|서블릿의 요청과 응답|
 |HttpSession|세션|
 |@RequestParam|요청 파라미터|
 |@SessionAttribute|세션의 attribute|
