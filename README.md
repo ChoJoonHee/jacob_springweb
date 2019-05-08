@@ -1,6 +1,7 @@
 # Jacob Springweb
 
-교재 Chapter 11의 회원가입을 완전하게 동작하는 애플리케이션으로 구현
+교재 Chapter 11의 회원가입을 완전하게 동작하는 애플리케이션으로 구현\
+XML-based configuration 사용
 
 ## Spring MVC와 Spring JDBC를 사용해서 Web application 만드는 방법
 
