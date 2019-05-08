@@ -25,5 +25,5 @@
 ### Return Values
 |컨트롤러 함수 리턴 값|설명|
 |---|---|
-|String|지정한 뷰로 forward 또는 redirect|
-|void|매핑 값의 뷰로 forward|
+|String|지정한 view로 forward 또는 redirect|
+|void|매핑 값의 view로 forward|
