@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * p.282 [리스트 11.11] 회원가입 컨트롤러
+ * 회원가입 컨트롤러
  * 
  * @author Jacob
  */
@@ -32,7 +32,7 @@ public class RegisterController {
 	}
 
 	/**
-	 * p.271 [리스트 11.5] handleStep1() 메서드 추가
+	 * p.271 [리스트 11.5] handleStep1()
 	 */
 	@RequestMapping("/register/step1")
 	public String handleStep1() {
@@ -40,11 +40,10 @@ public class RegisterController {
 	}
 
 	/**
-	 * p.276 [리스트 11.8] handleStep2() 메서드 추가
+	 * p.276 [리스트 11.8] handleStep2()
 	 */
 	@PostMapping("/register/step2")
-	public String handleStep2(
-			@RequestParam(value = "agree", defaultValue = "false") Boolean agree) {
+	public String handleStep2(@RequestParam(value = "agree", defaultValue = "false") Boolean agree) {
 		if (!agree) {// 동의하지 않으면 step1으로 돌아감
 			logger.debug("약관에 동의하지 않았습니다.");
 			return "register/step1";
@@ -54,7 +53,7 @@ public class RegisterController {
 	}
 
 	/**
-	 * p.282 [리스트 11.11] handleStep3() 메서드 추가
+	 * p.282 [리스트 11.11] handleStep3()
 	 */
 	@PostMapping("/register/step3")
 	public String handleStep3(Member member) {
@@ -69,11 +68,9 @@ public class RegisterController {
 	}
 
 	@GetMapping("/members")
-	public String members(
-			@RequestParam(value = "page", defaultValue = "1") int page,
-			Model model) {
+	public String members(@RequestParam(value = "page", defaultValue = "1") int page,
+										Model model) {
 
-		logger.debug("page = {}", page);
 		// 페이지 당 가져오는 행의 수
 		final int COUNT = 100;
 		// 시작점

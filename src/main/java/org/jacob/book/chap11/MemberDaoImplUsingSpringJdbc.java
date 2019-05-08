@@ -26,11 +26,8 @@ public class MemberDaoImplUsingSpringJdbc implements MemberDao {
 	JdbcTemplate jdbcTemplate;
 
 	final RowMapper<Member> memberRowMapper = new BeanPropertyRowMapper<>(
-			Member.class);
+										Member.class);
 
-	/**
-	 * p.192 [리스트 8.8]의 selectByEmail() 메서드 수정
-	 */
 	@Override
 	public Member selectByEmail(String email) {
 		// TODO selectByEmail() 메서드 구현
@@ -43,12 +40,9 @@ public class MemberDaoImplUsingSpringJdbc implements MemberDao {
 	@Override
 	public void insert(Member member) {
 		jdbcTemplate.update(INSERT, member.getEmail(), member.getPassword(),
-				member.getName());
+											member.getName());
 	}
 
-	/**
-	 * p.198 [리스트 8.11]의 update() 메서드 수정
-	 */
 	@Override
 	public void update(Member member) {
 		// TODO update() 메서드 구현
