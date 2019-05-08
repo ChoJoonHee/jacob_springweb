@@ -30,7 +30,7 @@ public class RegisterController {
 	public String main() {
 		return "main";
 	}
-	
+
 	/**
 	 * p.271 [리스트 11.5] handleStep1() 메서드 추가
 	 */
@@ -57,10 +57,7 @@ public class RegisterController {
 	 * p.282 [리스트 11.11] handleStep3() 메서드 추가
 	 */
 	@PostMapping("/register/step3")
-	public String handleStep3(RegisterRequest regReq) {
-		// 회원정보 저장
-		Member member = new Member(regReq.getEmail(), regReq.getPassword(),
-				regReq.getName());
+	public String handleStep3(Member member) {
 		try {
 			memberDao.insert(member);
 			logger.debug("회원 정보를 저장했습니다. {}", member);
