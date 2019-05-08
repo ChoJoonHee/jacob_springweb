@@ -1,4 +1,4 @@
-# Jacob Stringweb
+# Jacob Springweb
 
 교재의 Chapter 11의 회원가입
 
