@@ -26,6 +26,17 @@ public class RegisterController {
 
 	static final Logger logger = LogManager.getLogger();
 
+	@RequestMapping("/main")
+	public void main() {
+	}
+
+	/**
+	 * p.271 [리스트 11.5] handleStep1()
+	 */
+	@RequestMapping("/register/step1")
+	public void handleStep1() {
+	}
+
 	/**
 	 * p.276 [리스트 11.8] handleStep2()
 	 */
