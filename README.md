@@ -23,6 +23,7 @@ XML-based configuration 사용
 |@RequestParam|요청 파라미터|
 |@SessionAttribute|세션의 attribute|
 |Command object|데이터 바인딩한 객체|
+|Model|request에 넣을 데이터|
 
 ### Return Values
 |컨트롤러 함수 리턴 값|설명|
