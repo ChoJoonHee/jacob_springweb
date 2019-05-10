@@ -27,14 +27,16 @@ public class RegisterController {
 	static final Logger logger = LogManager.getLogger();
 
 	@RequestMapping("/main")
-	public void main() {
+	public String main() {
+		return "main";
 	}
 
 	/**
 	 * p.271 [리스트 11.5] handleStep1()
 	 */
 	@RequestMapping("/register/step1")
-	public void handleStep1() {
+	public String handleStep1() {
+		return "register/step1";
 	}
 
 	/**
@@ -67,7 +69,7 @@ public class RegisterController {
 	}
 
 	@GetMapping("/members")
-	public void members(
+	public String members(
 			@RequestParam(value = "page", defaultValue = "1") int page,
 			Model model) {
 
@@ -82,5 +84,6 @@ public class RegisterController {
 
 		model.addAttribute("totalCount", totalCount);
 		model.addAttribute("members", memberList);
+		return "members";
 	}
 }
