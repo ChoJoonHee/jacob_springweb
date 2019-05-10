@@ -6,6 +6,7 @@ XML-based configuration 사용
 ## Spring MVC와 Spring JDBC를 사용해서 Web application 만드는 방법
 
 * build.gradle : spring-webmvc, spring-jdbc 설정
+* gradle.properties : appDir 정의
 * META-INF/context.xml : 데이터베이스 커넥션 풀 설정
 * WEB-INF/web.xml : ContextLoaderListener와 DispatcherServlet 구성
 * WEB-INF/app-context.xml : Spring beans 정의
