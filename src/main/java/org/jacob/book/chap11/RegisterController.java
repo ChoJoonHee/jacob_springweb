@@ -26,23 +26,6 @@ public class RegisterController {
 
 	static final Logger logger = LogManager.getLogger();
 
-	@RequestMapping("/main")
-	public String main() {
-		// request.getRequestDispatcher("/WEB-INF/jsp/main.jsp").forward(request,response);
-		// DispatcherServlet이 아래 리턴 값을 받아서
-		// prefix(/WEB-INF/jsp/)와 suffix(.jsp) 를 붙여서 forward 한다.
-		return "main";
-	}
-
-	/**
-	 * p.271 [리스트 11.5] handleStep1()
-	 */
-	@RequestMapping("/register/step1")
-	public String handleStep1() {
-		// request.getRequestDispatcher("/WEB-INF/jsp/register/step1.jsp").forward(request,response);
-		return "register/step1";
-	}
-
 	/**
 	 * p.276 [리스트 11.8] handleStep2()
 	 */
@@ -73,7 +56,7 @@ public class RegisterController {
 	}
 
 	@GetMapping("/members")
-	public String members(
+	public void members(
 			@RequestParam(value = "page", defaultValue = "1") int page,
 			Model model) {
 
@@ -88,6 +71,5 @@ public class RegisterController {
 
 		model.addAttribute("totalCount", totalCount);
 		model.addAttribute("members", memberList);
-		return "members";
 	}
 }
