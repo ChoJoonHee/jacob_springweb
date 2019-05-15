@@ -15,6 +15,9 @@ p.291 [리스트 11.18] main 화면
 	<p>
 		<a href="./app/members">[회원 목록]</a>
 	</p>
+	<p>
+		<a href="./app/article/list">[게시판]</a>
+	</p>
 </body>
 </head>
 </html>
