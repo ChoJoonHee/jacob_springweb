@@ -28,14 +28,14 @@ public class MemberDao {
 	JdbcTemplate jdbcTemplate;
 
 	final RowMapper<Member> memberRowMapper = new BeanPropertyRowMapper<>(
-										Member.class);
+			Member.class);
 
 	/**
 	 * p.201 [리스트 8.12]의 insert() 메서드 수정. 회원 등록
 	 */
 	public void insert(Member member) {
 		jdbcTemplate.update(INSERT, member.getEmail(), member.getPassword(),
-											member.getName());
+				member.getName());
 	}
 
 	/**
@@ -57,6 +57,6 @@ public class MemberDao {
 	 */
 	public Member selectByLogin(String email, String password) {
 		return jdbcTemplate.queryForObject(SELECT_BY_LOGIN, memberRowMapper,
-											email, password);
+				email, password);
 	}
 }

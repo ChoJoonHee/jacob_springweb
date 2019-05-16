@@ -40,8 +40,7 @@ public class LoginController {
 	 */
 	@PostMapping("/login")
 	public String submit(@RequestParam("email") String email,
-										@RequestParam("password") String password,
-										HttpSession session) {
+			@RequestParam("password") String password, HttpSession session) {
 		try {
 			Member member = memberDao.selectByLogin(email, password);
 			session.setAttribute("MEMBER", member);
@@ -54,8 +53,7 @@ public class LoginController {
 	}
 
 	/**
-	 * p.362 [리스트 13.3] LogoutController의 logout() 메서드
-	 * 로그 아웃
+	 * p.362 [리스트 13.3] LogoutController의 logout() 메서드 로그 아웃
 	 */
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
