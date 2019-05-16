@@ -13,11 +13,11 @@
 	<form action="./app/article/add" method="post">
 		<p>제목 :</p>
 		<p>
-			<input type="text" name="title" maxlength="100" required style="width: 100%;">
+			<input type="text" name="title" maxlength="100" style="width: 100%;" required>
 		</p>
 		<p>내용 :</p>
 		<p>
-			<textarea name="content" style="width: 100%; height: 200px;"></textarea>
+			<textarea name="content" style="width: 100%; height: 200px;" required></textarea>
 		</p>
 		<p>
 			<button type="submit">등록</button>
