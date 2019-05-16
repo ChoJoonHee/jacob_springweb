@@ -21,7 +21,7 @@
 		<c:otherwise>
 			<!-- 로그인 하지 않았을 경우 -->
 			<p>
-				<a href="./app/login">[로그인]</a>
+				<a href="./app/loginForm">[로그인]</a>
 			</p>
 			<p>
 				<a href="./app/register/step1">[회원 가입]</a>

@@ -9,6 +9,7 @@ import org.jacob.book.chap11.MemberDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +31,7 @@ public class LoginController {
 	/**
 	 * 로그인 화면
 	 */
-	@GetMapping("/login")
+	@GetMapping("/loginForm")
 	public String form() {
 		return "login/loginForm";
 	}
@@ -48,7 +49,7 @@ public class LoginController {
 			return "login/loginSuccess";
 		} catch (EmptyResultDataAccessException e) {
 			logger.debug("로그인 실패. email={}", email);
-			return "login/loginForm";
+			return "redirect:/app/loginForm?&mode=FAILURE&email=" + email;
 		}
 	}
 

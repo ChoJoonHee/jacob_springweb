@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <!-- p.357 [리스트 13.7] 로그인 화면 수정 -->
 <html>
@@ -7,8 +8,12 @@
 </head>
 <body>
 	<form action="./app/login" method="post">
+		<c:if test="${param.mode=='FAILURE' }">
+			<p style="color: red;">이메일이 없거나 비밀번호가 틀립니다.</p>
+		</c:if>
 		<p>
-			<label>이메일 :</label><br /> <input type="email" name="email" required />
+			<label>이메일 :</label><br /> <input type="email" name="email"
+				value="${param.email }" required />
 		</p>
 		<p>
 			<label>비밀번호 : </label><br /> <input type="password" name="password" required />
