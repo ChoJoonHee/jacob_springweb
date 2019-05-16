@@ -11,6 +11,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -39,15 +40,26 @@ public class LoginController {
 	 */
 	@PostMapping("/login")
 	public String submit(@RequestParam("email") String email,
-			@RequestParam("password") String password, HttpSession session) {
+										@RequestParam("password") String password,
+										HttpSession session) {
 		try {
 			Member member = memberDao.selectByLogin(email, password);
-			session.setAttribute("member", member);
+			session.setAttribute("MEMBER", member);
 			logger.debug("로그인 성공. {}", member);
 			return "login/loginSuccess";
 		} catch (EmptyResultDataAccessException e) {
 			logger.debug("로그인 실패. email={}", email);
 			return "login/loginForm";
 		}
+	}
+
+	/**
+	 * p.362 [리스트 13.3] LogoutController의 logout() 메서드
+	 * 로그 아웃
+	 */
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/";
 	}
 }
