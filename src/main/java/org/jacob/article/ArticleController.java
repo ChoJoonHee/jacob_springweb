@@ -74,7 +74,7 @@ public class ArticleController {
 			return "./login/loginForm";
 
 		Member member = (Member) memberObj;
-		article.setUserId(member.getMemberId());
+		article.setMemberId(member.getMemberId());
 		article.setName(member.getName());
 		articleDao.addArticle(article);
 		return "redirect:/app/article/list";

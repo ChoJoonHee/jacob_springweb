@@ -5,7 +5,7 @@ public class Article {
 	String articleId;
 	String title;
 	String content;
-	String userId;
+	String memberId;
 	String name;
 	String cdate;
 	String udate;
@@ -34,12 +34,12 @@ public class Article {
 		this.content = content;
 	}
 
-	public String getUserId() {
-		return userId;
+	public String getMemberId() {
+		return memberId;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
 
 	public String getName() {
@@ -78,7 +78,7 @@ public class Article {
 	@Override
 	public String toString() {
 		return "\nArticle [articleId=" + articleId + ", title=" + title
-				+ ", content=" + content + ", userId=" + userId + ", name="
+				+ ", content=" + content + ", userId=" + memberId + ", name="
 				+ name + ", cdate=" + cdate + ", udate=" + udate + "]";
 	}
 
