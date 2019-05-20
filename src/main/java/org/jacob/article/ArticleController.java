@@ -59,7 +59,6 @@ public class ArticleController {
 		if (memberObj == null)
 			// 세션에 MEMBER가 없을 경우 로그인 화면으로
 			return "./login/loginForm";
-
 		return "article/addForm";
 	}
 

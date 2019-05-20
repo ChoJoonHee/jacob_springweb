@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class MemberController {
+public class RegisterController {
 
 	@Autowired
 	MemberDao memberDao;
