@@ -11,13 +11,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class ArticleDao {
 
-	static final String LIST_ARTICLES = "select articleId, title, memberId, name, left(cdate,16) cdate from article order by articleId desc limit ?,?";
+	static final String LIST_ARTICLES = "select articleId, title, userId, name, left(cdate,16) cdate from article order by articleId desc limit ?,?";
 
 	static final String COUNT_ARTICLES = "select count(articleId) from article";
 
-	static final String GET_ARTICLE = "select articleId, title, content, memberId, name, left(cdate,16) cdate, udate from article where articleId=?";
+	static final String GET_ARTICLE = "select articleId, title, content, userId, name, left(cdate,16) cdate, udate from article where articleId=?";
 
-	static final String ADD_ARTICLE = "insert article(title,content,memberId,name) values(?,?,?,?)";
+	static final String ADD_ARTICLE = "insert article(title,content,userId,name) values(?,?,?,?)";
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
@@ -53,6 +53,6 @@ public class ArticleDao {
 	 */
 	public int addArticle(Article article) {
 		return jdbcTemplate.update(ADD_ARTICLE, article.getTitle(),
-				article.getContent(), article.getMemberId(), article.getName());
+				article.getContent(), article.getUserId(), article.getName());
 	}
 }
