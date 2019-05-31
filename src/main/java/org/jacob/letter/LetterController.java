@@ -50,21 +50,15 @@ public class LetterController {
 	}
 
 	/**
-	 * 편지쓰기화면
-	 */
-	@GetMapping("/letter/addForm")
-	public void addForm() {
-		// TODO: 권한 체크
-	}
-
-	/**
 	 * 편지 저장
 	 */
 	@PostMapping("/letter/add")
-	public void add(Letter letter, @SessionAttribute("MEMBER") Member member) {
+	public String add(Letter letter,
+			@SessionAttribute("MEMBER") Member member) {
 		letter.setSenderId(member.getMemberId());
 		letter.setSenderName(member.getName());
 		letterDao.addLetter(letter);
+		return "redirect:/app/letter/listOfSender";
 	}
 
 	/**
@@ -73,9 +67,11 @@ public class LetterController {
 	@GetMapping("/letter/delete")
 	public String delete(@RequestParam("letterId") String letterId,
 			@SessionAttribute("MEMBER") Member member) {
-		// TODO: 권한 체크
+		int updatedRows = letterDao.deleteLetter(letterId,
+				member.getMemberId());
+		if (updatedRows == 0)
+			throw new RuntimeException("No Authority!");
 
-		letterDao.deleteLetter(letterId, member.getMemberId());
-		return "목록 화면";
+		return "redirect:/보낸목록 또는 받은목록";
 	}
 }
