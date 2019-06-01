@@ -26,12 +26,15 @@ public class LetterController {
 			@SessionAttribute("MEMBER") Member member, Model model) {
 
 		// 페이지당 행의 수와 페이지의 시작점
-		final int COUNT = 20;
-		int offset = (page - 1) * COUNT;
+		final int ROWS_PER_PAGE = 20;
+		int offset = (page - 1) * ROWS_PER_PAGE;
 
-		List<Letter> letters = letterDao
-				.listLettersReceived(member.getMemberId(), offset, COUNT);
+		List<Letter> letters = letterDao.listLettersReceived(
+				member.getMemberId(), offset, ROWS_PER_PAGE);
+		int count = letterDao.countLettersReceived(member.getMemberId());
+
 		model.addAttribute("letters", letters);
+		model.addAttribute("count", count);
 	}
 
 	/**
@@ -43,12 +46,15 @@ public class LetterController {
 			@SessionAttribute("MEMBER") Member member, Model model) {
 
 		// 페이지당 행의 수와 페이지의 시작점
-		final int COUNT = 20;
-		int offset = (page - 1) * COUNT;
+		final int ROWS_PER_PAGE = 20;
+		int offset = (page - 1) * ROWS_PER_PAGE;
 
 		List<Letter> letters = letterDao.listLettersSent(member.getMemberId(),
-				offset, COUNT);
+				offset, ROWS_PER_PAGE);
+		int count = letterDao.countLettersSent(member.getMemberId());
+
 		model.addAttribute("letters", letters);
+		model.addAttribute("count", count);
 	}
 
 	/**
