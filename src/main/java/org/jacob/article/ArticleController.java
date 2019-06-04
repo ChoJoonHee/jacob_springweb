@@ -52,21 +52,15 @@ public class ArticleController {
 	}
 
 	/**
-	 * 글 등록 화면
-	 */
-	@GetMapping("/article/addForm")
-	public String articleAddForm(HttpSession session) {
-		return "article/addForm";
-	}
-
-	/**
 	 * 글 등록
 	 */
-	@PostMapping("/article/add")
+	@PostMapping("/article/s/add")
 	public String articleAdd(Article article,
 			@SessionAttribute("MEMBER") Member member) {
+		// 세션의 멤버 정보를 글의 등록자 정보에 넣는다.  
 		article.setUserId(member.getMemberId());
 		article.setName(member.getName());
+		
 		articleDao.addArticle(article);
 		return "redirect:/app/article/list";
 	}
@@ -74,8 +68,8 @@ public class ArticleController {
 	/**
 	 * 글 수정 화면
 	 */
-	@GetMapping("/article/updateForm")
-	public void updateForm(@RequestParam("articleId") String articleId,
+	@GetMapping("/article/s/edit")
+	public void edit(@RequestParam("articleId") String articleId,
 			@SessionAttribute("MEMBER") Member member, Model model) {
 		Article article = articleDao.getArticle(articleId);
 
@@ -90,7 +84,7 @@ public class ArticleController {
 	/**
 	 * 글 수정
 	 */
-	@PostMapping("/article/update")
+	@PostMapping("/article/s/update")
 	public String update(Article article,
 			@SessionAttribute("MEMBER") Member member) {
 		article.setUserId(member.getMemberId());
@@ -107,7 +101,7 @@ public class ArticleController {
 	/**
 	 * 글 삭제
 	 */
-	@GetMapping("/article/delete")
+	@GetMapping("/article/s/delete")
 	public String delete(@RequestParam("articleId") String articleId,
 			@SessionAttribute("MEMBER") Member member) {
 		int updatedRows = articleDao.deleteArticle(articleId,
