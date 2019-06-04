@@ -2,8 +2,6 @@ package org.jacob.article;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jacob.book.chap11.Member;
