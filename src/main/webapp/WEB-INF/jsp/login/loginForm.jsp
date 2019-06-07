@@ -36,7 +36,7 @@
 			<button type="submit">로그인</button>
 		</p>
 		<input type="text" name="returnUrl" value="${returnUrl }"
-			style="width: 400px;" readonly />
+			style="width: 600px;" readonly />
 	</form>
 </body>
 </html>
