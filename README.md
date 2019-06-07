@@ -30,3 +30,11 @@ XML-based configuration 사용
 |---|---|
 |String|지정한 view로 forward 또는 redirect|
 |void|매핑 값의 view로 forward|
+
+## 로그인 처리 방법
+* 로그인 화면: returnUrl을 설정한다.
+  1. AuthCheckInterceptor에서 경우(로그인이 필요한 화면에 접근한 경우): ${param.returnUrl}
+  1. 메뉴에서 로그인을 눌렀을 경우: ${header.referer}
+  1. 로그인 URL을 직접 친 경우: /
+* 로그인 컨트롤러: 로그인이 성공하면 returnUrl로 리다이렉트
+* AuthCheckInterceptor: 요청 URL로 returnUrl을 설정해서 로그인 화면으로 리다이렉트
