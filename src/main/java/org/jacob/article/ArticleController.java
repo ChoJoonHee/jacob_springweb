@@ -52,7 +52,7 @@ public class ArticleController {
 	/**
 	 * 글 등록
 	 */
-	@PostMapping("/article/s/add")
+	@PostMapping("/article/addForm")
 	public String articleAdd(Article article,
 			@SessionAttribute("MEMBER") Member member) {
 		// 세션의 멤버 정보를 글의 등록자 정보에 넣는다.  
@@ -66,7 +66,7 @@ public class ArticleController {
 	/**
 	 * 글 수정 화면
 	 */
-	@GetMapping("/article/s/edit")
+	@GetMapping("/article/updateForm")
 	public void edit(@RequestParam("articleId") String articleId,
 			@SessionAttribute("MEMBER") Member member, Model model) {
 		Article article = articleDao.getArticle(articleId);
@@ -82,7 +82,7 @@ public class ArticleController {
 	/**
 	 * 글 수정
 	 */
-	@PostMapping("/article/s/update")
+	@PostMapping("/article/update")
 	public String update(Article article,
 			@SessionAttribute("MEMBER") Member member) {
 		article.setUserId(member.getMemberId());
@@ -99,7 +99,7 @@ public class ArticleController {
 	/**
 	 * 글 삭제
 	 */
-	@GetMapping("/article/s/delete")
+	@GetMapping("/article/delete")
 	public String delete(@RequestParam("articleId") String articleId,
 			@SessionAttribute("MEMBER") Member member) {
 		int updatedRows = articleDao.deleteArticle(articleId,
